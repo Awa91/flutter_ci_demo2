@@ -1,0 +1,35 @@
+# This will trigger whenever you push a new Git Tag (like v1.0.1), which is the industry standard for marking a release.
+
+name: Generate Changelog
+
+on:
+  push:
+    tags:
+      - 'v*' # Trigger on any tag starting with v
+
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Important: Fetch all history to compare tags
+
+      - name: Generate Changelog
+        id: github_release
+        uses: mikepenz/release-changelog-builder-action@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          configuration: "configuration.json" # Optional: For custom categories
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          body: ${{ steps.github_release.outputs.changelog }}
+          # This attaches your APK artifact to the release as well!
+          files: build/app/outputs/flutter-apk/app-release.apk
+
+
+          

@@ -1,17 +1,15 @@
-# Flutter CI/CD Demo 🚀
-
 ![Flutter CI](https://github.com/Awa91/flutter_ci_demo2/actions/workflows/flutter_ci.yml/badge.svg)
 
-This repository demonstrates a complete, professional-grade Flutter CI/CD pipeline.
+This project demonstrates a full Continuous Integration workflow using GitHub Actions for a Flutter application.
 
-## 🛠 Features in this Branch (`feature/setup-ci`)
-* **Automated Testing:** Runs unit and widget tests on every push.
-* **Static Analysis:** Enforces Dart linting rules via `flutter analyze`.
-* **Build Artifacts:** Automatically generates a release APK for download.
-* **Test Coverage:** Reports code coverage percentages to Pull Requests.
-* **Deployment:** (Configured) Ready for TestFlight and Google Play internal tracks.
+## CI Features
+* **Static Analysis:** Checks for linting issues using `flutter analyze`.
+* **Testing:** Runs all unit and widget tests automatically.
+* **Build Verification:** Compiles a release APK to ensure no build-time errors.
+* **Artifacts:** Provides a downloadable APK for every successful run.
 
-## 🚀 Getting Started
-1. **Clone the repo:**
-   ```bash
-   git clone [https://github.com/Awa91/flutter_ci_demo2.git](https://github.com/Awa91/flutter_ci_demo2.git)
+## How to use
+1. Clone the repo.
+2. Run `flutter pub get`.
+3. Check the **Actions** tab to see the workflow in progress!
+
