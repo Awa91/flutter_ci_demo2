@@ -1,17 +1,17 @@
-# flutter_ci_demo2
+# Flutter CI/CD Demo 🚀
 
-A new Flutter project.
+![Flutter CI](https://github.com/Awa91/flutter_ci_demo2/actions/workflows/flutter_ci.yml/badge.svg)
 
-## Getting Started
+This repository demonstrates a complete, professional-grade Flutter CI/CD pipeline.
 
-This project is a starting point for a Flutter application.
+## 🛠 Features in this Branch (`feature/setup-ci`)
+* **Automated Testing:** Runs unit and widget tests on every push.
+* **Static Analysis:** Enforces Dart linting rules via `flutter analyze`.
+* **Build Artifacts:** Automatically generates a release APK for download.
+* **Test Coverage:** Reports code coverage percentages to Pull Requests.
+* **Deployment:** (Configured) Ready for TestFlight and Google Play internal tracks.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🚀 Getting Started
+1. **Clone the repo:**
+   ```bash
+   git clone [https://github.com/Awa91/flutter_ci_demo2.git](https://github.com/Awa91/flutter_ci_demo2.git)
