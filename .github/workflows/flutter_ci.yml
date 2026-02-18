@@ -1,0 +1,70 @@
+name: Flutter CI
+
+# Trigger the workflow on pushes or pull requests to specific branches
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build:
+    name: Analyze and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout the code from the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Set up the Java environment (required for Android builds/tools)
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      # 3. Set up the Flutter SDK
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          # flutter-version: '3.19.0' # Optional: Lock to a specific version
+
+      # 4. Install project dependencies
+      - name: Install dependencies
+        run: flutter pub get
+
+      # 5. Check for formatting issues
+      - name: Check formatting
+        run: dart format --set-exit-if-changed .
+
+      # 6. Run static analysis (linting)
+      - name: Analyze code
+        run: flutter analyze
+
+      # 7. Run unit and widget tests
+      - name: Run tests
+        run: flutter test --coverage
+
+      # 8. Build a dry-run APK to ensure the project compiles
+      - name: Build APK (Check)
+        run: flutter build apk --debug
+
+
+      # To allow your team or QA testers to download the app directly from the 
+      # GitHub Actions interface, we use the upload-artifact action.
+      # 1. Build the Release APK
+      # We use --split-per-abi to reduce file size or just a standard build
+      - name: Build Release APK
+        run: flutter build apk --release
+
+      # 2. Upload the APK as an artifact
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-apk
+          # Path where Flutter generates the APK by default
+          path: build/app/outputs/flutter-apk/app-release.apk
+          # Optional: How long to keep the file (default is 90 days)
+          retention-days: 7
