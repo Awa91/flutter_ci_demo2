@@ -1,17 +1,15 @@
-# flutter_ci_demo2
+![Flutter CI](https://github.com/Awa91/flutter_ci_demo2/actions/workflows/flutter_ci.yml/badge.svg)
 
-A new Flutter project.
+This project demonstrates a full Continuous Integration workflow using GitHub Actions for a Flutter application.
 
-## Getting Started
+## CI Features
+* **Static Analysis:** Checks for linting issues using `flutter analyze`.
+* **Testing:** Runs all unit and widget tests automatically.
+* **Build Verification:** Compiles a release APK to ensure no build-time errors.
+* **Artifacts:** Provides a downloadable APK for every successful run.
 
-This project is a starting point for a Flutter application.
+## How to use
+1. Clone the repo.
+2. Run `flutter pub get`.
+3. Check the **Actions** tab to see the workflow in progress!
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
